@@ -4,21 +4,16 @@
 import time
 import curses
 
-# initialize window object
-window = curses.initscr()
 
-# terminal window configurations
-curses.noecho()
-curses.cbreak()
-curses.curs_set(0)
+# main menu
+def mainui(window):
+    # terminal customizations
+    curses.curs_set(0)
 
-# display string
-window.addstr(5, 5, "What's Poppin")
-window.refresh()
-time.sleep(3)
+    window.addstr(5, 5, "Whats poppin")
+    window.refresh()
+    time.sleep(3)
 
-# close window and reset terminal customizations
-curses.curs_set(1)
-curses.echo()
-curses.nocbreak()
-curses.endwin()
+
+# run mainui in curses wrapper
+curses.wrapper(mainui)
